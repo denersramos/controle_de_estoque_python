@@ -2,6 +2,8 @@
 
 Sistema simples de controle de estoque desenvolvido em Python para cadastro de produtos e gerenciamento de suas quantidades.
 
+> 🚧 **Projeto em evolução:** este é meu primeiro projeto e ainda vou melhorá-lo aos poucos, conforme avanço nos estudos.
+
 ## Sobre o projeto
 
 Este projeto foi desenvolvido como forma de praticar conceitos fundamentais de programação em Python, utilizando entrada de dados, estruturas condicionais, loops, funções e tratamento de exceções.
@@ -48,3 +50,16 @@ O sistema permite cadastrar um produto, definir sua quantidade inicial e realiza
 
 ```bash
 python sistema_estoque.py
+```
+
+## Próximos passos
+
+Este projeto ainda será evoluído. As próximas melhorias planejadas são:
+
+- [ ] Trabalhar com vários produtos usando listas e dicionários
+- [ ] Salvar os dados em arquivo (`.txt` ou `.json`)
+- [ ] Separar o código em módulos
+- [ ] Usar banco de dados (SQL / MySQL)
+- [ ] Criar uma interface com HTML e CSS
+- [ ] Transformar em aplicação web com Flask
+- [ ] Adicionar validações, melhorias e documentação completa
