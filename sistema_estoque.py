@@ -17,8 +17,6 @@ def cadastrar_produto():
 
         return produto, estoque
 
-produto, estoque = cadastrar_produto() #Pega os dois valores retornados e coloca cada um na variável correspondente.
-
 def adicionar_produto():
     global estoque
     while True:
@@ -83,6 +81,9 @@ def retirar_produto():
         print("\n" f"Estoque atualizado de {produto} para: {estoque}")
 
 #--------------INÍCIO--------------
+
+#Pega os dois valores retornados e coloca cada um na variável correspondente.
+produto, estoque = cadastrar_produto()
 
 while True:
 
