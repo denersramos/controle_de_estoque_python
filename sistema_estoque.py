@@ -1,5 +1,7 @@
 #--------------FUNÇÕES--------------
 
+#Função que cadastra um produto e a quantidade inicial em estoque.
+
 def cadastrar_produto():
     produto = input("Digite o nome do produto: ")
 
@@ -16,6 +18,13 @@ def cadastrar_produto():
             continue
 
         return produto, estoque
+
+#Função que retorna a quantidade de unidades no singular ou plural, dependendo do valor de n.
+
+def unidades(n):
+    return f"{n} unidade" if n == 1 else f"{n} unidades"
+
+#Função que adiciona produtos ao estoque.
 
 def adicionar_produto():
     global estoque
@@ -36,9 +45,11 @@ def adicionar_produto():
         #(estoque = estoque + quantidade) é menos utilizada que o de baixo, porém o resultado é o mesmo.
 
         estoque += quantidade
-        print("\n" f"Estoque atualizado de {produto} para: {estoque}")
+        print("\n" f"Estoque de {produto} atualizado para: {unidades(estoque)}")
 
         break
+
+#Função que retira produtos do estoque.
 
 def retirar_produto():
     global estoque
@@ -47,7 +58,7 @@ def retirar_produto():
         #Trata entradas que não sejam números inteiros
 
         try:
-            print("\n" f"{estoque} unidades disponíveis no estoque.")
+            print("\n" f"{unidades(estoque)} no estoque.")
             quantidade = int(input("Digite a quantidade que deseja retirar: "))
         except ValueError:
             print("\n" "Entrada inválida. Por favor, digite um número inteiro.")
@@ -65,25 +76,20 @@ def retirar_produto():
     
     if estoque_atualizado < 0:
         print("\n" "Estoque insuficiente.")
-        print(f"Apenas {estoque} unidades disponíveis no estoque.")
-
-    elif estoque_atualizado == 1:
-        print("\n" f"Atualizado para {estoque_atualizado} unidade disponível no estoque.")
-        estoque = estoque_atualizado
+        print(f"Apenas {unidades(estoque)} no estoque.")
 
     elif estoque_atualizado == 0:
-        print("\n" f"Atualizado para {estoque_atualizado} unidades disponíveis no estoque.")
-        print("ATENÇÃO, O ESTOQUE ZEROU!")
         estoque = estoque_atualizado
+        print("\n" f"Estoque de {produto} atualizado para: {unidades(estoque)}")
+        print("ATENÇÃO, O ESTOQUE ZEROU!")
 
     else:
         estoque = estoque_atualizado
-        print("\n" f"Estoque atualizado de {produto} para: {estoque}")
+        print("\n" f"Estoque de {produto} atualizado para: {unidades(estoque)}")
 
 #--------------INÍCIO--------------
 
-#Pega os dois valores retornados e coloca cada um na variável correspondente.
-produto, estoque = cadastrar_produto()
+produto, estoque = cadastrar_produto() #Pega os dois valores retornados na função e coloca cada um na variável correspondente.
 
 while True:
 
