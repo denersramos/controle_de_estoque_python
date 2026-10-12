@@ -26,8 +26,7 @@ def unidades(n):
 
 #Função que adiciona produtos ao estoque.
 
-def adicionar_produto():
-    global estoque
+def adicionar_produto(produto, estoque):
     while True:
     
         #Trata entradas que não sejam números inteiros
@@ -46,13 +45,11 @@ def adicionar_produto():
 
         estoque += quantidade
         print("\n" f"Estoque de {produto} atualizado para: {unidades(estoque)}")
-
-        break
+        return estoque
 
 #Função que retira produtos do estoque.
 
-def retirar_produto():
-    global estoque
+def retirar_produto(produto, estoque):
     while True:
 
         #Trata entradas que não sejam números inteiros
@@ -87,9 +84,12 @@ def retirar_produto():
         estoque = estoque_atualizado
         print("\n" f"Estoque de {produto} atualizado para: {unidades(estoque)}")
 
+    return estoque
+
 #--------------INÍCIO--------------
 
-produto, estoque = cadastrar_produto() #Pega os dois valores retornados na função e coloca cada um na variável correspondente.
+#Pega os dois valores retornados na função e coloca cada um na variável correspondente.
+produto, estoque = cadastrar_produto()
 
 while True:
 
@@ -106,12 +106,12 @@ while True:
     #Se a opção escolhida for 1, adiciona produtos ao estoque
 
     if opcao == "1":
-        adicionar_produto()
+        estoque = adicionar_produto(produto, estoque)
 
     #Se a opção escolhida for 2, retira produtos do estoque
 
     elif opcao == "2":
-        retirar_produto()
+        estoque = retirar_produto(produto, estoque)
 
     #Se a opção escolhida for 3, cadastra um novo produto
 
